@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Animals</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: #D6EEEE;
+}
+
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  }
+
+</style>
+
+
+</head>
+<body>
+
+
+<div >
+<h1> All Animals</h1>
+  <img src="https://assets.wallpapersin4k.org/uploads/2017/04/Domestic-Animals-Wallpaper-9.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/34100000/animals-domestic-animals-34167307-920-920.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="https://tse2.mm.bing.net/th?id=OIP.D63w_-sNOakKs03StrQOEAHaE7&pid=Api&P=0?auto=compress&cs=tinysrgb&w=400
+" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/33600000/animals-domestic-animals-33679279-1024-1024.jpg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
+  
+ </div><br><br>
+ 
+
+<form>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Animal Name</th>
+    <th>Date Of Birth</th>
+   <th>Breed</th>
+    <th>Price</th>
+    <th>Owner Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Phone Number</th>
+    
+  </tr>
+ 
+<tr  id="id1" th:each="currentAnimal: ${animals}">
+	<td th:text="${currentAnimal.id}" ></td>
+	<td th:text="${currentAnimal.name}" ></td>
+	<td th:text="${currentAnimal.date_of_birth}" ></td>
+	<td th:text="${currentAnimal.breed}" ></td>
+	<td th:text="${currentAnimal.price}" ></td>
+	<td th:text="${currentAnimal.date_of_birth}" ></td>
+	<td th:text="${currentAnimal.owner.owner_name}" ></td>
+	<td th:text="${currentAnimal.owner.address}" ></td>
+	<td th:text="${currentAnimal.owner.city}" ></td>
+	<td th:text="${currentAnimal.owner.state}" ></td>
+	<td th:text="${currentAnimal.owner.phoneNumber}" ></td>
+	<td><a  th:href="@{/edit/{id}(id=${currentAnimal.id})}">Edit</a></td>
+	
+	<td><a  th:href="@{/delete/{id}(id=${currentAnimal.id})}">Delete</a></td>
+	
+	
+</table>
+</form>
+<br>
+<a href="../inputAnimal">Add a new animal</a>
+<br>
+<footer>
+ <p>Authors: Group 5
+  <a href="mailto:uchinamhora@gmail.com">Uday F Chinhamora</a>
+  <a href="mailto:lialarynn@gmail.com">Aurelia Kruger</a>
+  <a href="mailto:sdgrigsby@dmacc.edu">Scott Grigsby</a>
+  <a href="mailto:blthompson12@dmacc.edu">Brandon Thompson</a>
+</p>
+</footer>
+</body>
+</html>
