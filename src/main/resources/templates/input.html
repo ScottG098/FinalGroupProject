@@ -3,7 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New or Edit Animal</title>
+<script type="text/javascript">
+function validateForm(){
+	let ownerName = document.forms["AnimalForm"]["owner.owner_name"].value;
+	let ownerAddress = document.forms["AnimalForm"]["owner.address"].value;
+	let ownerCity = document.forms["AnimalForm"]["owner.city"].value;
+	let ownerState = document.forms["AnimalForm"]["owner.state"].value;
+	let ownerPhone = document.forms["AnimalForm"]["owner.phoneNumber"].value;
+	if(document.AnimalForm.name.value==""){
+		alert("Please provide a name!");
+		document.AnimalForm.name.focus();
+		return false;
+	}
+	else if(document.AnimalForm.date_of_birth.value==""){
+		alert("Please provide a date of birth!");
+		document.AnimalForm.date_of_birth.focus();
+		return false;
+	}
+	else if(document.AnimalForm.breed.value==""){
+		alert("Please provide a breed!");
+		document.AnimalForm.breed.focus();
+		return false;
+	}
+	else if(ownerName==""){
+		alert("Please provide an owner name");
+		return false;
+	}
+	else if(ownerAddress==""){
+		alert("Please provide an address");
+		return false;
+	}
+	else if(ownerCity==""){
+		alert("Please provide a city");
+		return false;
+	}
+	else if(ownerState==""){
+		alert("Please provide a state");
+		return false;
+	}
+	else if(ownerPhone==""){
+		alert("Please provide a phone number");
+		return false;
+	}
+}
 
+</script>
 
 <style>
 
@@ -37,7 +81,7 @@ footer {
   
  </div>
 <br><br>
-<form th:object="${newAnimal}" th:action="@{/update/{id}(id=${newAnimal.id})}" method=POST>
+<form th:object="${newAnimal}" th:action="@{/update/{id}(id=${newAnimal.id})}" method=POST name="AnimalForm" onsubmit="return validateForm();">
 
 Name: <input name="name" size="20" th:field="*{name}"><br />
 Date Of Birth: <input name="date_of_birth" size="20" th:field="*{date_of_birth}"><br />
