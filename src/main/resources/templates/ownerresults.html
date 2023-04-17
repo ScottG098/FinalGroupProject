@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View All Animals</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: #D6EEEE;
+}
+
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  }
+
+</style>
+
+
+</head>
+<body>
+
+
+<div >
+<h1> Waiting List</h1>
+  <img src="https://assets.wallpapersin4k.org/uploads/2017/04/Domestic-Animals-Wallpaper-9.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/34100000/animals-domestic-animals-34167307-920-920.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="https://tse2.mm.bing.net/th?id=OIP.D63w_-sNOakKs03StrQOEAHaE7&pid=Api&P=0?auto=compress&cs=tinysrgb&w=400
+" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/33600000/animals-domestic-animals-33679279-1024-1024.jpg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
+  
+ </div><br><br>
+ 
+
+<form>
+<table style="width:100%">
+  <tr>
+    <th>Owner Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Phone Number</th>
+    
+  </tr>
+ 
+<tr  id="id" th:each="currentOwner: ${waiting_list_owners}">
+	<td th:text="${currentOwner.owner_name}" ></td>
+	<td th:text="${currentOwner.address}" ></td>
+	<td th:text="${currentOwner.city}" ></td>
+	<td th:text="${currentOwner.state}" ></td>
+	<td th:text="${currentOwner.phoneNumber}" ></td>
+	<td><a  th:href="@{/editOwner/{id}(id=${currentOwner.id})}">Edit</a></td>
+	
+	<td><a  th:href="@{/deleteOwner/{id}(id=${currentOwner.id})}">Delete</a></td>
+	
+	
+</table>
+</form>
+<br>
+<a href="../inputOwner">Add a new Owner to waiting list.</a>
+<a href="../viewAll">Back to animal list</a>
+<br>
+<footer>
+ <p>Authors: Group 5
+  <a href="mailto:uchinamhora@gmail.com">Uday F Chinhamora</a>
+  <a href="mailto:lialarynn@gmail.com">Aurelia Kruger</a>
+  <a href="mailto:sdgrigsby@dmacc.edu">Scott Grigsby</a>
+  <a href="mailto:blthompson12@dmacc.edu">Brandon Thompson</a>
+</p>
+</footer>
+</body>
+</html>

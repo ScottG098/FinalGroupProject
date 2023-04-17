@@ -33,7 +33,7 @@ public class Animal {
 	
 	
 	@Autowired
-private Owner owner;
+	private Owner owner;
 	
 	public Animal() {
 		super();
