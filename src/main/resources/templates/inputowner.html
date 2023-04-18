@@ -5,28 +5,32 @@
 <title>Insert New or Edit Owner</title>
 <script type="text/javascript">
 function validateForm(){
+	
+	if(document.OwnerForm.owner_name.value==""){
+		alert("Please provide a name!");
+		document.OwnerForm.owner_name.focus();
+		return false;
+	}
+	else if(document.OwnerForm.address.value==""){
+		alert("Please provide owner's address!");
+		document.OwnerForm.address.focus();
+		return false;
+	}
+	else if(document.OwnerForm.city.value==""){
+		alert("Please provide a city!");
+		document.OwnerForm.city.focus();
+		return false;
+	}
+	 var re = /^[\w ]+$/;
 
-	 if(ownerName==""){
-		alert("Please provide an owner name");
-		return false;
+	    // validation fails if the input doesn't match our regular expression
+	    if(!re.test(OwnerForm.owner_name.value)) {
+	      alert("Error: Input contains invalid characters!");
+	      OwnerForm.owner_name.focus();
+	      return false;
+	    }
 	}
-	else if(ownerAddress==""){
-		alert("Please provide an address");
-		return false;
-	}
-	else if(ownerCity==""){
-		alert("Please provide a city");
-		return false;
-	}
-	else if(ownerState==""){
-		alert("Please provide a state");
-		return false;
-	}
-	else if(ownerPhone==""){
-		alert("Please provide a phone number");
-		return false;
-	}
-}
+
 
 </script>
 
@@ -67,8 +71,8 @@ footer {
 Owner Name: <input name="owner_name" size="20" th:field="*{owner_name}"><br />
 Address: <input name="address" size="20" th:field="*{address}"><br />
 City: <input name="city" size="20" th:field="*{city}"><br />
-State /Country: <input name="state" size="20" th:field="*{state}"><br />
-Phone Number: <input name="phoneNumber" size="20" th:field="*{phoneNumber}"><br />
+State /Country: <input name="state" size="20" th:field="*{state}" required><br />
+Phone Number: <input name="phoneNumber" size="20" th:field="*{phoneNumber}" required><br />
 
 <input name="Submit" type="submit" value="submit" />
 </form>

@@ -45,6 +45,21 @@ function validateForm(){
 		alert("Please provide a phone number");
 		return false;
 	}
+	 var re = /^[\w ]+$/;
+
+	    // validation fails if the input doesn't match our regular expression
+	    if(!re.test(AnimalForm.name.value)) {
+	      alert("Error: Input contains invalid characters!");
+	      AnimalForm.name.focus();
+	      return false;
+	    }
+	    
+	    else  // validation fails if the input doesn't match our regular expression
+		    if(!re.test(AnimalForm.ownerName.value)) {
+			      alert("Error: Input contains invalid characters!");
+			      AnimalForm.ownerName.focus();
+			      return false;
+			    }
 }
 
 </script>

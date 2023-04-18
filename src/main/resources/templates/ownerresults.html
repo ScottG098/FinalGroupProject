@@ -68,7 +68,7 @@ footer {
 	<td th:text="${currentOwner.city}" ></td>
 	<td th:text="${currentOwner.state}" ></td>
 	<td th:text="${currentOwner.phoneNumber}" ></td>
-	<td><a  th:href="@{/editOwner/{id}(id=${currentOwner.id})}">Edit</a></td>
+	<td><a  th:href="@{/editOwner/{id}(id=${currentOwner.id})}">Edit</a></td>&nbsp;
 	
 	<td><a  th:href="@{/deleteOwner/{id}(id=${currentOwner.id})}">Delete</a></td>
 	
@@ -76,7 +76,7 @@ footer {
 </table>
 </form>
 <br>
-<a href="../inputOwner">Add a new Owner to waiting list.</a>
+<a href="../inputOwner">Add a new Owner to waiting list.</a>&nbsp;&nbsp;
 <a href="../viewAll">Back to animal list</a>
 <br>
 <footer>
