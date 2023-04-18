@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>View All Animals</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -34,7 +35,49 @@ footer {
   }
 
 </style>
+<script>
 
+$(document).ready(function(){
+    $("h2").on({
+        mouseenter: function(){
+            $(this).css("color", "red");
+            $(this).css("text-align", "left");
+            
+        }
+    });    
+});
+
+$(document).ready(function(){
+    $("h2").on({
+        mouseout: function(){
+            $(this).css("color", "green");
+            $(this).css("text-align", "center");
+            $(this).css("font", "italic large-caps bold 22px/60px Georgia, serif");
+        }
+    });    
+});
+$(document).ready(function(){
+    $("#myForm").on({
+        mouseover: function(){
+            $(this).css("color", "green");
+            $(this).css("text-align", "center");
+            
+        }
+    });    
+});
+
+$(document).ready(function(){
+    $("#myForm").on({
+        mouseout: function(){
+            $(this).css("color", "red");
+            $(this).css("text-align", "left");
+           
+        }
+    });    
+});
+
+
+</script>
 
 </head>
 <body>
@@ -48,10 +91,14 @@ footer {
 " style="width:20%">
   <img src="http://images6.fanpop.com/image/photos/33600000/animals-domestic-animals-33679279-1024-1024.jpg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
   
- </div><br><br>
+ </div><br>
+ <h2>
  
+ Animal Owners
+ 
+ </h2>
 
-<form>
+<form id="myForm">
 <table style="width:100%">
   <tr>
     <th>Owner Name</th>
