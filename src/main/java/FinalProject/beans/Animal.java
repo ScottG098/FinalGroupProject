@@ -29,6 +29,7 @@ public class Animal {
 	private String name;
 	private String breed;
 	private String date_of_birth;
+	
 	private double price;
 	
 	
