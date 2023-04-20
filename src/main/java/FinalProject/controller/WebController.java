@@ -6,22 +6,29 @@
 */
 package FinalProject.controller;
 
+import java.util.List;
+
 /**
  * @author uchin
  *
  */
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import FinalProject.repository.AnimalRepository;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import FinalProject.beans.Animal;
+import FinalProject.repository.AnimalRepository;
 
 @Controller
 public class WebController {
@@ -64,5 +71,21 @@ public class WebController {
 		Animal c = repo.findById(id).orElse(null);
 	    repo.delete(c);
 	    return viewAllAnimals(model);
+	}
+	
+	@GetMapping("/sort")
+	public String sortAnimalsByName(@RequestParam(name ="sort", required = false) String sortField, Model model){
+		List<Animal> animals;
+		
+		if(sortField != null) {
+			Sort sort = Sort.by(sortField);
+			animals = repo.findAll(sort);
+		}
+		else {
+			animals = repo.findAll();
+		}
+		
+		model.addAttribute("animals", animals);
+		return "results";
 	}
 }
