@@ -96,7 +96,15 @@ $(document).ready(function(){
  </div>
  
 <h2>List of animals</h2>
-<form id="myForm">
+<form id="myForm" action="/sort" method="get">
+<label for="sort">Sort by:</label>
+<select name="sort" id="sort">
+<option value="name">Name</option>
+<option value="breed">Breed</option>
+<option value="price">Price</option>
+<option value="id">ID</option>
+</select>
+<button type="submit">Sort</button>
 <table style="width:100%">
   <tr>
     <th>ID</th>

@@ -1,3 +1,4 @@
+
 package FinalProject.beans;
 
 import java.util.Date;
