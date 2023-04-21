@@ -75,17 +75,27 @@ public class WebController {
 	
 	@GetMapping("/sort")
 	public String sortAnimalsByName(@RequestParam(name ="sort", required = false) String sortField, Model model){
-		List<Animal> animals;
+	List<Animal> animals = null;
 		
 		if(sortField != null) {
 			Sort sort = Sort.by(sortField);
-			animals = repo.findAll(sort);
+			animals=repo.findAll(sort);
 		}
-		else {
+		else if(sortField == null){
+			System.out.println("null");
 			animals = repo.findAll();
 		}
 		
 		model.addAttribute("animals", animals);
 		return "results";
+	}
+	
+	@GetMapping("/sortByUserInput")
+	public String sortAnimalsWithField(@RequestParam(name="userInput", required = false) String userInput, Model model) {
+		
+		List<Animal> animals = repo.findAllSortedByUserInput(userInput);
+		model.addAttribute("animals", animals);
+		return "results";
+		
 	}
 }
