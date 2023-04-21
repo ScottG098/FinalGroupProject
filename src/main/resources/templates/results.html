@@ -52,7 +52,7 @@ $(document).ready(function(){
     $("h2").on({
         mouseout: function(){
             $(this).css("color", "green");
-            $(this).css("text-align", "center");
+            $(this).css("text-align", "left");
             $(this).css("font", "italic large-caps bold 22px/60px Georgia, serif");
         }
     });    
@@ -61,7 +61,7 @@ $(document).ready(function(){
     $("#myForm").on({
         mouseover: function(){
             $(this).css("color", "green");
-            $(this).css("text-align", "center");
+            $(this).css("text-align", "left");
             
         }
     });    
@@ -96,15 +96,19 @@ $(document).ready(function(){
  </div>
  
 <h2>List of animals</h2>
-<form id="myForm" action="/sort" method="get">
+<form id="myForm" method="get">
 <label for="sort">Sort by:</label>
 <select name="sort" id="sort">
+<option>
 <option value="name">Name</option>
 <option value="breed">Breed</option>
 <option value="price">Price</option>
 <option value="id">ID</option>
 </select>
-<button type="submit">Sort</button>
+<button type="submit" formaction="/sort">Sort</button>
+<label for="Name">Search:</label>
+<input type="text" id="Name" name="userInput">
+<button type="submit" formaction="/sortByUserInput">Sort</button>
 <table style="width:100%">
   <tr>
     <th>ID</th>
