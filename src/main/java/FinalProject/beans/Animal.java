@@ -18,9 +18,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Data;
 
+@Data
 @Entity
-
 public class Animal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,51 +62,5 @@ public class Animal {
 		this.date_of_birth = date_of_birth;
 		this.price=price;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getBreed() {
-		return breed;
-	}
-	public void setBreed(String breed) {
-		this.breed = breed;
-	}
-	public String getDate_of_birth() {
-		return date_of_birth;
-	}
-	public void setDate_of_birth(String date_of_birth) {
-		this.date_of_birth = date_of_birth;
-	}
-	public Owner getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-	
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	@Override
-	public String toString() {
-		return "Animal [id=" + id + ", name=" + name + ", breed=" + breed + ", date_of_birth=" + date_of_birth
-				+ ", price=" + price 	+ ", owner=" + owner + "]";
-	}
-
 	
 }
