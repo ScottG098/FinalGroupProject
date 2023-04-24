@@ -1,15 +1,14 @@
 
 package FinalProject.beans;
 
-<<<<<<< HEAD
 import java.util.Date;
 
 
-=======
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
->>>>>>> ac647e2c09ea0bcbe843af43e3f1a6c08f2f8a41
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
