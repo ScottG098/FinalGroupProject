@@ -1,8 +1,15 @@
+
 package FinalProject.beans;
 
+<<<<<<< HEAD
 import java.util.Date;
 
 
+=======
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+>>>>>>> ac647e2c09ea0bcbe843af43e3f1a6c08f2f8a41
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,70 +21,26 @@ import jakarta.persistence.Id;
  *CIS175-Spring 2023
  * Apr 18, 2023
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class VetRecord {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name ="id")
-	int id;
-	Date recordDate;
-	String recordType;
-	String petName;
-	String vetID;
+	private int id;
+	private String recordDate;
+	private String recordType;
+	private String petName;
+	private String vetID;
 	
-	public VetRecord() {
-		super();
-	}
-	public VetRecord(int id, Date recordDate, String recordType, String petName, String vetID) {
-		super();
-		this.id = id;
-		this.recordDate = recordDate;
-		this.recordType = recordType;
-		this.petName = petName;
-		this.vetID = vetID;
-	}
-	public VetRecord(Date recordDate, String recordType, String petName, String vetID) {
+	public VetRecord(String recordDate, String recordType, String petName, String vetID) {
 		super();
 		this.recordDate = recordDate;
 		this.recordType = recordType;
 		this.petName = petName;
 		this.vetID = vetID;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public Date getRecordDate() {
-		return recordDate;
-	}
-	public void setRecordDate(Date recordDate) {
-		this.recordDate = recordDate;
-	}
-	public String getRecordType() {
-		return recordType;
-	}
-	public void setRecordType(String recordType) {
-		this.recordType = recordType;
-	}
-	public String getPetName() {
-		return petName;
-	}
-	public void setPetName(String petName) {
-		this.petName = petName;
-	}
-	public String getVetID() {
-		return vetID;
-	}
-	public void setVetID(String vetID) {
-		this.vetID = vetID;
-	}
-	
-	@Override
-	public String toString() {
-		return "VetRecord [id=" + id + ", recordDate=" + recordDate + ", recordType=" + recordType + ", petName="
-				+ petName + ", vetID=" + vetID + "]";
 	}
 }
+
