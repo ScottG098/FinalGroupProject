@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New or Edit Vet Records</title>
+<script type="text/javascript">
+function validateForm(){
+	
+	if(document.RecordForm.recordDate.value==""){
+		alert("Please provide a date!");
+		document.RecordForm.recordDate.focus();
+		return false;
+	}
+	else if(document.OwnerForm.address.value==""){
+		alert("Please provide owner's address!");
+		document.OwnerForm.address.focus();
+		return false;
+	}
+	else if(document.OwnerForm.city.value==""){
+		alert("Please provide a city!");
+		document.OwnerForm.city.focus();
+		return false;
+	}
+	 var re = /^[\w ]+$/;
+
+	    // validation fails if the input doesn't match our regular expression
+	    if(!re.test(OwnerForm.owner_name.value)) {
+	      alert("Error: Input contains invalid characters!");
+	      OwnerForm.owner_name.focus();
+	      return false;
+	    }
+	}
+
+
+</script>
+
+<style>
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+  }
+</style>
+</head>
+<body>
+
+<div>
+ <h1> Add Vet Record</h1>
+  <img src="https://assets.wallpapersin4k.org/uploads/2017/04/Domestic-Animals-Wallpaper-9.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/34100000/animals-domestic-animals-34167307-920-920.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
+  <img src="https://tse2.mm.bing.net/th?id=OIP.D63w_-sNOakKs03StrQOEAHaE7&pid=Api&P=0?auto=compress&cs=tinysrgb&w=400
+" style="width:20%">
+  <img src="http://images6.fanpop.com/image/photos/33600000/animals-domestic-animals-33679279-1024-1024.jpg?auto=compress&cs=tinysrgb&w=400" style="width:30%">
+  
+ </div>
+<br><br>
+<form th:object="${newRecord}" th:action="@{/updateRecord/{id}(id=${newRecord.id})}" method=POST name="RecordForm" onsubmit="return validateForm();">
+
+Date: <input name="recordDate" size="20" th:field="*{recordDate}"><br />
+Type of Vet work: <input name="recordType" size="20" th:field="*{recordType}"><br />
+Name of Pet: <input name="petName" size="20" th:field="*{petName}"><br />
+Vet ID: <input name="vetID" size="20" th:field="*{vetID}" required><br />
+
+<input name="Submit" type="submit" value="submit" />
+</form>
+<br>
+<a href="../viewAllRecords">View All Vet Records in database</a>
+
+<br>
+<footer>
+
+ <p>Authors: Group 5
+  <a href="mailto:uchinamhora@gmail.com">Uday F Chinhamora</a>
+  <a href="mailto:lialarynn@gmail.com">Aurelia Kruger</a>
+  <a href="mailto:sdgrigsby@dmacc.edu">Scott Grigsby</a>
+  <a href="mailto:blthompson12@dmacc.edu">Brandon Thompson</a>
+</p>
+</footer>
+
+
+
+</body>
+</html>

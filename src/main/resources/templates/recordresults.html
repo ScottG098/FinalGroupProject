@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>View Owner Waiting List</title>
+<title>View Vet Records</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
 table, th, td {
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 
 <div >
-<h1> Waiting List</h1>
+<h1>Veteranary Records</h1>
   <img src="https://assets.wallpapersin4k.org/uploads/2017/04/Domestic-Animals-Wallpaper-9.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
   <img src="http://images6.fanpop.com/image/photos/34100000/animals-domestic-animals-34167307-920-920.jpg?auto=compress&cs=tinysrgb&w=400" style="width:20%">
   <img src="https://tse2.mm.bing.net/th?id=OIP.D63w_-sNOakKs03StrQOEAHaE7&pid=Api&P=0?auto=compress&cs=tinysrgb&w=400
@@ -94,36 +94,34 @@ $(document).ready(function(){
  </div><br>
  <h2>
  
- Animal Owners
+ Vet Records
  
  </h2>
 
-<form id="myForm">
+<form id="myRecordForm">
 <table style="width:100%">
   <tr>
-    <th>Owner Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Phone Number</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Pet Name</th>
+    <th>Vet ID</th>
     
   </tr>
  
-<tr  id="id" th:each="currentOwner: ${waiting_list_owners}">
-	<td th:text="${currentOwner.owner_name}" ></td>
-	<td th:text="${currentOwner.address}" ></td>
-	<td th:text="${currentOwner.city}" ></td>
-	<td th:text="${currentOwner.state}" ></td>
-	<td th:text="${currentOwner.phoneNumber}" ></td>
-	<td><a  th:href="@{/editOwner/{id}(id=${currentOwner.id})}">Edit</a></td>
+<tr  id="id" th:each="currentRecord: ${vet_record}">
+	<td th:text="${currentRecord.recordDate}" ></td>
+	<td th:text="${currentRecord.recordType}" ></td>
+	<td th:text="${currentRecord.petName}" ></td>
+	<td th:text="${currentRecord.vetID}" ></td>
+	<td><a  th:href="@{/editRecord/{id}(id=${currentRecord.id})}">Edit</a></td>
 	
-	<td><a  th:href="@{/deleteOwner/{id}(id=${currentOwner.id})}">Delete</a></td>
+	<td><a  th:href="@{/deleteRecord/{id}(id=${currentRecord.id})}">Delete</a></td>
 	
 	
 </table>
 </form>
 <br>
-<a href="../inputOwner">Add a new Owner to waiting list.</a>&nbsp;&nbsp;
+<a href="../inputRecord">Add a new record to list.</a>&nbsp;&nbsp;
 <a href="../viewAll">Back to animal list</a>
 <br>
 <footer>
