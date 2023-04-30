@@ -1,13 +1,18 @@
 package FinalProject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import FinalProject.repository.WaitingListOwnerRepository;
+import FinalProject.beans.Animal;
 import FinalProject.beans.WaitingListOwner;
 
 /**
@@ -57,6 +62,32 @@ public class OwnerWebController {
 		WaitingListOwner c = repo.findById(id).orElse(null);
 	    repo.delete(c);
 	    return viewAllOwners(model);
+	}
+	
+	@GetMapping("/sortOwners")
+	public String sortOwnersByName(@RequestParam(name ="sort", required = false) String sortField, Model model){
+	List<WaitingListOwner> owner = null;
+		
+		if(sortField != null) {
+			Sort sort = Sort.by(sortField);
+			owner=repo.findAll(sort);
+		}
+		else if(sortField == null){
+			System.out.println("null");
+			owner = repo.findAll();
+		}
+		
+		model.addAttribute("waiting_list_owners", owner);
+		return "results";
+	}
+	
+	@GetMapping("/sortByUserInputOwners")
+	public String sortAnimalsWithField(@RequestParam(name="userInput", required = false) String userInput, Model model) {
+		
+		List<WaitingListOwner> owners = repo.findAllSortedByUserInput(userInput);
+		model.addAttribute("animals", owners);
+		return "results";
+		
 	}
 
 }
