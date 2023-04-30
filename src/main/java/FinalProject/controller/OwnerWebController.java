@@ -78,7 +78,7 @@ public class OwnerWebController {
 		}
 		
 		model.addAttribute("waiting_list_owners", owner);
-		return "results";
+		return "ownerresults";
 	}
 	
 	@GetMapping("/sortByUserInputOwners")
@@ -86,7 +86,7 @@ public class OwnerWebController {
 		
 		List<WaitingListOwner> owners = repo.findAllSortedByUserInput(userInput);
 		model.addAttribute("animals", owners);
-		return "results";
+		return "ownerresults";
 		
 	}
 

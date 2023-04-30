@@ -103,11 +103,14 @@ $(document).ready(function(){
 <select name="sort" id="sort">
 <option>
 <option value="owner_name">Name</option>
-<option value="address">Breed</option>
-<option value="city">Price</option>
-<option value="state">ID</option>
+<option value="address">Address</option>
+<option value="city">City</option>
+<option value="state">State</option>
 </select>
 <button type="submit" formaction="/sortOwners">Sort</button>
+<label for="Name">Search:</label>
+<input type="text" id="Name" name="userInput">
+<button type="submit" formaction="/sortByUserInput">Sort</button>
 <table style="width:100%">
   <tr>
     <th>Owner Name</th>

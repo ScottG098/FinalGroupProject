@@ -125,7 +125,7 @@ $(document).ready(function(){
     
   </tr>
  
-<tr  id="id1" th:each="currentAnimal: ${animals}">
+<tr  id="id1" th:each="currentAnimal: ${newAnimal}">
 	<td th:text="${currentAnimal.id}" ></td>
 	<td th:text="${currentAnimal.name}" ></td>
 	<td th:text="${currentAnimal.date_of_birth}" ></td>
