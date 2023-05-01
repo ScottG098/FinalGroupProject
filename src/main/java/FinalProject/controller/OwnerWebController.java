@@ -80,14 +80,5 @@ public class OwnerWebController {
 		model.addAttribute("waiting_list_owners", owner);
 		return "ownerresults";
 	}
-	
-	@GetMapping("/sortByUserInputOwners")
-	public String sortAnimalsWithField(@RequestParam(name="userInput", required = false) String userInput, Model model) {
-		
-		List<WaitingListOwner> owners = repo.findAllSortedByUserInput(userInput);
-		model.addAttribute("animals", owners);
-		return "ownerresults";
-		
-	}
 
 }

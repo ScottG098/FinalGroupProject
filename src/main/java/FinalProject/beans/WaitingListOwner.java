@@ -39,5 +39,7 @@ public class WaitingListOwner {
 			this.setState(state);
 		}
 
+		
+		
 	}
 
