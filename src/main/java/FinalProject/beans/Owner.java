@@ -32,41 +32,21 @@ public class Owner {
 		this.setCity(city);
 		this.setState(state);
 	}
-	public String getOwner_name() {
-		return owner_name;
+	/**
+	 * @param state2
+	 */
+	private void setState(String state2) {
+		this.state = state2;
+		
 	}
-	public void setOwner_name(String owner_name) {
-		this.owner_name = owner_name;
+	/**
+	 * @param city2
+	 */
+	private void setCity(String city2) {
+		this.city = city2;
+		
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-		}
 	
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	@Override
-	public String toString() {
-		return "Owner [owner_name=" + owner_name + ", address=" + address + "city=" + city+ ", state=" + state+  ", phoneNumber=" + phoneNumber + "]";
-	}
 
 
 }
