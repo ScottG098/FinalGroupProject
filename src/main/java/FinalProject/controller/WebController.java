@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,7 +42,7 @@ public class WebController {
 			return addNewAnimal(model);
 		}
 		
-		model.addAttribute("animals", repo.findAll());
+		model.addAttribute("newAnimal", repo.findAll());
 		return "results";
 	}
 
@@ -86,7 +87,7 @@ public class WebController {
 			animals = repo.findAll();
 		}
 		
-		model.addAttribute("animals", animals);
+		model.addAttribute("newAnimal", animals);
 		return "results";
 	}
 	
@@ -94,8 +95,9 @@ public class WebController {
 	public String sortAnimalsWithField(@RequestParam(name="userInput", required = false) String userInput, Model model) {
 		
 		List<Animal> animals = repo.findAllSortedByUserInput(userInput);
-		model.addAttribute("animals", animals);
+		model.addAttribute("newAnimal", animals);
 		return "results";
 		
 	}
+	
 }

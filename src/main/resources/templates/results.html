@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>View All Animals</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style>
 table, th, td {
   border: 1px solid black;
@@ -124,7 +125,7 @@ $(document).ready(function(){
     
   </tr>
  
-<tr  id="id1" th:each="currentAnimal: ${animals}">
+<tr  id="id1" th:each="currentAnimal: ${newAnimal}">
 	<td th:text="${currentAnimal.id}" ></td>
 	<td th:text="${currentAnimal.name}" ></td>
 	<td th:text="${currentAnimal.date_of_birth}" ></td>
@@ -136,7 +137,6 @@ $(document).ready(function(){
 	<td th:text="${currentAnimal.owner.state}" ></td>
 	<td th:text="${currentAnimal.owner.phoneNumber}" ></td>
 	<td><a  th:href="@{/edit/{id}(id=${currentAnimal.id})}">Edit</a></td>
-	
 	<td><a  th:href="@{/delete/{id}(id=${currentAnimal.id})}">Delete</a></td>
 	
 	

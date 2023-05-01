@@ -98,7 +98,19 @@ $(document).ready(function(){
  
  </h2>
 
-<form id="myForm">
+<form id="myForm" method="get">
+<label for="sort">Sort by:</label>
+<select name="sort" id="sort">
+<option>
+<option value="owner_name">Name</option>
+<option value="address">Address</option>
+<option value="city">City</option>
+<option value="state">State</option>
+</select>
+<button type="submit" formaction="/sortOwners">Sort</button>
+<label for="Name">Search:</label>
+<input type="text" id="Name" name="userInput">
+<button type="submit" formaction="/sortByUserInput">Sort</button>
 <table style="width:100%">
   <tr>
     <th>Owner Name</th>
@@ -118,8 +130,6 @@ $(document).ready(function(){
 	<td><a  th:href="@{/editOwner/{id}(id=${currentOwner.id})}">Edit</a></td>
 	
 	<td><a  th:href="@{/deleteOwner/{id}(id=${currentOwner.id})}">Delete</a></td>
-	
-	
 </table>
 </form>
 <br>

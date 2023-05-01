@@ -27,41 +27,42 @@ public class Animal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name ="id")
-	private int id ;
+	private int id;
 	private String name;
 	private String breed;
 	private String date_of_birth;
 	
-	private double price;
+	private String price;
 	
 	
 	@Autowired
 	private Owner owner;
 	
 	public Animal() {
-		super();
-		// TODO Auto-generated constructor stub
-		this.date_of_birth ="" ;
+	
 	}
 	
 	public Animal(String name) {
-		super();
+		
 		this.name = name;
 	}
-	public Animal(String name, String breed, String date_of_birth,double price) {
-		super();
+	public Animal(String name, String breed, String date_of_birth, String price) {
 		this.name = name;
 		this.breed = breed;
 		this.date_of_birth = date_of_birth;
 		this.price=price;
 	}
-	public Animal(int id, String name, String breed, String date_of_birth,double price) {
-		super();
+	public Animal(int id, String name, String breed, String date_of_birth, String  price) {
+		
 		this.id = id;
 		this.name = name;
 		this.breed = breed;
 		this.date_of_birth = date_of_birth;
 		this.price=price;
 	}
+
+	
+	
 	
 }
+

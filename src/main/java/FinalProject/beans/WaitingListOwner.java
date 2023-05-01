@@ -38,5 +38,8 @@ public class WaitingListOwner {
 			this.setCity(city);
 			this.setState(state);
 		}
+
+		
+		
 	}
 

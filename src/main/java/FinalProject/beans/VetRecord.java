@@ -41,5 +41,9 @@ public class VetRecord {
 		this.petName = petName;
 		this.vetID = vetID;
 	}
+
+	
+	
+	
 }
 

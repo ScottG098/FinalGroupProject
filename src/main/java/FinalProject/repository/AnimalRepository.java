@@ -22,6 +22,6 @@ import FinalProject.beans.Animal;
 
 @EnableJpaRepositories
 public interface AnimalRepository  extends JpaRepository<Animal, Long>{
-	@Query("SELECT a FROM Animal a ORDER BY CASE " + "WHEN a.name = :userInput THEN a.name " + "WHEN a.breed = :userInput THEN a.breed " + "ELSE a.name END ASC")
+	@Query("SELECT a FROM Animal a ORDER BY CASE " + " WHEN a.name = :userInput THEN a.name " + " WHEN a.breed = :userInput THEN a.breed " + " WHEN a.price = :userInput THEN a.price" + " WHEN a.id = :userInput THEN a.id" + " ELSE a.name END ASC")
 	List<Animal> findAllSortedByUserInput(@Param("userInput")String userInput);
 }
